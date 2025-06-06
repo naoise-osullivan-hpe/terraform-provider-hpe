@@ -12,7 +12,7 @@ import (
 	"github.com/HewlettPackard/hpe-morpheus-go-sdk/sdk"
 )
 
-func CreateEnvironment(t *testing.T)(
+func CreateEnvironment(t *testing.T) (
 	*sdk.ListEnvironments200ResponseAllOfEnvironmentsInner, error) {
 	t.Helper()
 
