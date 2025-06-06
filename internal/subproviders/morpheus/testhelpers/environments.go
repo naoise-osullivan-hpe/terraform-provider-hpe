@@ -13,7 +13,8 @@ import (
 )
 
 func CreateEnvironment(t *testing.T) (
-	*sdk.ListEnvironments200ResponseAllOfEnvironmentsInner, error) {
+	*sdk.ListEnvironments200ResponseAllOfEnvironmentsInner, error,
+) {
 	t.Helper()
 
 	name := fmt.Sprintf("testacc-%s-%s", t.Name(), rand.Text())
