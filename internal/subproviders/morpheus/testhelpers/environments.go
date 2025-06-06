@@ -12,7 +12,8 @@ import (
 	"github.com/HewlettPackard/hpe-morpheus-go-sdk/sdk"
 )
 
-func CreateEnvironment(t *testing.T) (*sdk.ListEnvironments200ResponseAllOfEnvironmentsInner, error) {
+func CreateEnvironment(t *testing.T)(
+	*sdk.ListEnvironments200ResponseAllOfEnvironmentsInner, error) {
 	t.Helper()
 
 	name := fmt.Sprintf("testacc-%s-%s", t.Name(), rand.Text())
@@ -27,7 +28,8 @@ func CreateEnvironment(t *testing.T) (*sdk.ListEnvironments200ResponseAllOfEnvir
 
 	client := newClient(ctx, t)
 
-	e, hresp, err := client.EnvironmentsAPI.AddEnvironments(ctx).AddEnvironmentsRequest(*addEnvironmentReq).Execute()
+	e, hresp, err := client.EnvironmentsAPI.AddEnvironments(ctx).AddEnvironmentsRequest(
+		*addEnvironmentReq).Execute()
 	if err != nil || hresp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("POST failed for Environment %w", err)
 	}
