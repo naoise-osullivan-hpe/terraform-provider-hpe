@@ -17,9 +17,7 @@ import (
 const summary = "read environment data source"
 
 // Ensure the implementation satisfies the expected interfaces.
-var (
-	_ datasource.DataSource = &DataSource{}
-)
+var _ datasource.DataSource = &DataSource{}
 
 // NewDataSource is a helper function to simplify the provider implementation.
 func NewDataSource() datasource.DataSource {
@@ -50,7 +48,7 @@ func (d *DataSource) Schema(
 	resp.Schema = EnvironmentDataSourceSchema(ctx)
 }
 
-func getEnvironmentById(
+func getEnvironmentByID(
 	ctx context.Context,
 	id int64,
 	apiClient *sdk.APIClient,
@@ -98,7 +96,7 @@ func getEnvironment(
 	apiClient *sdk.APIClient,
 ) (*sdk.ListEnvironments200ResponseAllOfEnvironmentsInner, error) {
 	if !data.Id.IsNull() {
-		return getEnvironmentById(ctx, data.Id.ValueInt64(), apiClient)
+		return getEnvironmentByID(ctx, data.Id.ValueInt64(), apiClient)
 	} else if !data.Name.IsNull() {
 		return getEnvironmentByName(ctx, data.Name.ValueString(), apiClient)
 	}
