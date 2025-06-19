@@ -1,16 +1,14 @@
 ---
-page_title: "hpe_morpheus_environment Data Source - hpe"
+page_title: "hpe_morpheus_environment Data Source - terraform-provider-hpe"
 subcategory: "morpheus"
 description: |-
   
 ---
 # hpe_morpheus_environment (Data Source)
 
-
-
-`hpe_morpheus_environment` data source ....
-
 Provides a Morpheus environment data source.
+
+
 
 ## Example Usage
 
@@ -40,3 +38,4 @@ data "hpe_morpheus_environment" "test" {
 - `code` (String) Optional code for use with policies
 - `description` (String) The description of the Morpheus environment
 - `visibility` (String) Whether the environment is visible in sub-tenants or not
+
